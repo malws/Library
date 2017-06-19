@@ -1,0 +1,136 @@
+@import url("http://fonts.googleapis.com/css?family=Lato");
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  text-align: left;
+  font-family: Lato;
+  color: #47476b;
+  background: #efeff5;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 50px;
+  text-transform: uppercase;
+  margin: 20px 0 0 0;
+}
+
+.menu {
+	margin: 50px 0 80px 0;
+}
+
+.tabs {
+  float: none;
+  list-style: none;
+  position: relative;
+  margin: 0 0 0 10px;
+  text-align: left;
+}
+.tabs li {  
+  display: inline-block;
+}
+.tabs input[type="radio"] {
+  display:none;
+}
+.tabs .tablab {
+  display: block;
+  padding: 14px 21px;
+  border-radius: 2px 2px 0 0;
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  background: #d0d0e1;
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.tabs .tablab:hover {
+  background: #b1b1cd;
+}
+.tabs .tab-content {
+  z-index: 2;
+  display: none;
+  overflow: hidden;
+  width: 100%;
+  font-size: 17px;
+  line-height: 25px;
+  padding: 25px;
+  position: absolute;
+  top: 53px;
+  left: 0;
+  background: #9494b8;
+}
+.tabs input[type="radio"]:checked + .tablab {
+  top: 0;
+  padding-top: 17px;
+  background: #9494b8;
+}
+.tabs input[type="radio"]:checked ~ .tab-content {
+  display: block;
+}
+.forms {
+	background: #9494b8;
+	padding:20px;
+}
+input[type="submit"]{
+	border: none;
+	width:80px;
+	height:30px;
+	border-radius: 12px;
+	background-color: #666699;
+	color: white;
+	text-align: center;
+    text-decoration: none;
+	font-size: 16px;
+    margin: 4px 2px;
+	padding: 2px;
+    cursor: pointer;
+}
+
+input[type="text"], input[type="password"]{
+	width:300px;
+	height:40px;
+	font-size: 16px;
+}
+select{
+	width:300px;
+	height:40px;
+	font-size: 16px;
+}
+table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #666699;
+    color: white;
+}
+a{
+	text-decoration: none;
+	color: #47476b;
+}
