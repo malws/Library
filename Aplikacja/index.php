@@ -3,7 +3,7 @@
 	  
 	  if(empty($_SESSION['user']))
 	{
-		$_SESSION['user'] = 'gość';
+		$_SESSION['user'] = 'goÅ›Ä‡';
 		$_SESSION['permissions'] = 'czytelnik';
 	}
 	
@@ -23,7 +23,7 @@
 			{
 				while ( $roww = mysql_fetch_assoc($quer) )
 				{
-					//Mrrrrr :*
+					
 					if($roww['status'] == 0)
 					{					
 						$start = strtotime($rows['data_zwrotu']);
@@ -68,11 +68,11 @@
 echo $_SESSION['user'].'! ';
 if ($_SESSION['auth'] == false)
 {
-	echo '<a href="login.php">Zaloguj się </a>';
+	echo '<a href="login.php">Zaloguj siÄ™ </a>';
 }	
 else
 {
-	echo '<a href="login.php?logout">Wyloguj się </a>';
+	echo '<a href="login.php?logout">Wyloguj siÄ™ </a>';
 	echo '<p><a href="myaccount.php"><span style="font-weight: bold"> Moje konto </span></a></p>';
 }
 ?>
@@ -86,7 +86,7 @@ else
 <label for="tab1" class="tablab">Zasoby</label>
 <div id="tab-content1" class="tab-content">
 <form id="form-wyszukiwanie" action="" method="post">
-<p><input type="text" name="search" placeholder="Podaj tytuł lub autora">
+<p><input type="text" name="search" placeholder="Podaj tytuÅ‚ lub autora">
 <input type="submit" name="wyszukaj" value="Wyszukaj" /></p>
 </form>
 
@@ -94,7 +94,7 @@ else
 <?php
 if($_SESSION['permissions'] == 2):
 ?>
-<a href="books.php?id=new">Dodaj nowy zasób</a>
+<a href="books.php?id=new">Dodaj nowy zasÃ³b</a>
 <?php
 endif;
 if(isset($_POST['wyszukaj'])) {
@@ -104,7 +104,7 @@ if(isset($_POST['wyszukaj'])) {
 		$rescount = 0;
 		echo "<div class='content'>";
 		echo "<table>";
-		echo "<tr><th>Tytuł</th><th>Autor</th><th>Wydawnictwo</th><th>Numer wydania</th><th>Liczba stron</th><th>Gatunek</th></tr>";
+		echo "<tr><th>TytuÅ‚</th><th>Autor</th><th>Wydawnictwo</th><th>Numer wydania</th><th>Liczba stron</th><th>Gatunek</th></tr>";
 
 		while ( $row = mysql_fetch_assoc($sql) )
 		{
@@ -119,7 +119,7 @@ if(isset($_POST['wyszukaj'])) {
 				echo "<td>".$row['gatunek']."</td>";
 				echo "<td><a href=\"books.php?id=reserve ".$row['id_ksiazka']."\">Zarezerwuj egzemplarz</a></td>";
 				if($_SESSION['permissions'] == 2) {
-					echo "<td><a href=\"books.php?id=delete ".$row['id_ksiazka']."\">Usuń</a></td>";
+					echo "<td><a href=\"books.php?id=delete ".$row['id_ksiazka']."\">UsuÅ„</a></td>";
 				}
 				//foreach ( $row as $col ) echo "<td>$col</td>";
 				echo "</tr>"; 		
@@ -127,7 +127,7 @@ if(isset($_POST['wyszukaj'])) {
 			}
 		}
 		echo "</table>";
-		echo 'Znaleziono '.$rescount.' pasujących wyników.';
+		echo 'Znaleziono '.$rescount.' pasujÄ…cych wynikÃ³w.';
 		echo "</div>";
 	}
 }
@@ -148,7 +148,7 @@ if($_SESSION['permissions'] == 2):
 <p><input type="text" name="search_users" placeholder="Podaj nazwisko">
 <input type="submit" name="wyszukaj_uzytkownikow" value="Wyszukaj" /></p>
 </form>
-<a href="usermanage.php?id=new">Dodaj nowego użytkownika</a>
+<a href="usermanage.php?id=new">Dodaj nowego uÅ¼ytkownika</a>
 
 <?php
 	endif;
@@ -159,7 +159,7 @@ if($_SESSION['permissions'] == 2):
 		$rescount = 0;
 		echo "<div class='content'>";
 		echo "<table>";
-		echo "<tr><th>Login</th><th>Imię</th><th>Nazwisko</th><th>Adres</th></tr>";
+		echo "<tr><th>Login</th><th>ImiÄ™</th><th>Nazwisko</th><th>Adres</th></tr>";
 
 		while ( $row = mysql_fetch_assoc($sql) )
 		{
@@ -170,7 +170,7 @@ if($_SESSION['permissions'] == 2):
 				echo "<td>".$row['imie']."</td>";
 				echo "<td>".$row['nazwisko']."</td>";
 				echo "<td>".$row['adres']."</td>";
-				echo "<td><a href=\"usermanage.php?id=user ".$row['id_bibliotekarz']."\">Usu�</a></td>";
+				echo "<td><a href=\"usermanage.php?id=user ".$row['id_bibliotekarz']."\">Usuñ</a></td>";
 				echo "<td><a href=\"usermanage.php?id=edit bibliotekarz ".$row['id_bibliotekarz']."\">Edytuj</a></td>";
 				//foreach ( $row as $col ) echo "<td>$col</td>";
 				echo "</tr>"; 		
@@ -178,7 +178,7 @@ if($_SESSION['permissions'] == 2):
 			}
 		}
 		echo "</table>";
-		echo 'Znaleziono '.$rescount.' pasujących wyników.';
+		echo 'Znaleziono '.$rescount.' pasujÄ…cych wynikÃ³w.';
 		echo "</div>";
 	}
 }
@@ -208,7 +208,7 @@ if($_SESSION['permissions'] != 0){
 		$rescount = 0;
 		echo "<div class='content'>";
 		echo "<table>";
-		echo "<tr><th>Numer</th><th>Imię</th><th>Nazwisko</th><th>Adres</th></tr>";
+		echo "<tr><th>Numer</th><th>ImiÄ™</th><th>Nazwisko</th><th>Adres</th></tr>";
 		while ( $row = mysql_fetch_assoc($sql) )
 		{
 			if((preg_match($regex,$row['login_czytelnik']))||(preg_match($regex,$row['nazwisko'])))
@@ -218,7 +218,7 @@ if($_SESSION['permissions'] != 0){
 				echo "<td>".$row['imie']."</td>";
 				echo "<td>".$row['nazwisko']."</td>";
 				echo "<td>".$row['adres']."</td>";
-				echo "<td><a href=\"usermanage.php?id=czytelnik ".$row['id_czytelnik']."\">Usu�</a></td>";
+				echo "<td><a href=\"usermanage.php?id=czytelnik ".$row['id_czytelnik']."\">Usuñ</a></td>";
 				echo "<td><a href=\"usermanage.php?id=edit czytelnik ".$row['id_czytelnik']."\">Edytuj</a></td>";
 				
 				//foreach ( $row as $col ) echo "<td>$col</td>";
@@ -227,7 +227,7 @@ if($_SESSION['permissions'] != 0){
 			}
 		}
 		echo "</table>";
-		echo 'Znaleziono '.$rescount.' pasujących wyników.';
+		echo 'Znaleziono '.$rescount.' pasujÄ…cych wynikÃ³w.';
 		echo "</div>";
 	}
 }
@@ -254,7 +254,7 @@ if(isset($_POST['wyszukaj_rezerwacje'])) {
 		echo "<div class='content'>";
 		echo "<p>Rezerwacje czytelnika ".$row['login_czytelnik']."</p>";
 		echo "<table>";
-		echo "<tr><th>Nr rezerwacji</th><th>Autor</th><th>Tytuł</th><th>Nr egzemplarza</th></tr>";
+		echo "<tr><th>Nr rezerwacji</th><th>Autor</th><th>TytuÅ‚</th><th>Nr egzemplarza</th></tr>";
 		while ( $rowres = mysql_fetch_assoc($resultres) )
 		{
 			$resultegz = mysql_query("SELECT * FROM `egzemplarz` WHERE `id_egzemplarz` = '".$rowres['id_egzemplarz']."'");
@@ -281,13 +281,13 @@ if(isset($_POST['wyszukaj_rezerwacje'])) {
 </li>
 <li>
 <input type="radio" name="tabs" id="tab5" <?php if ($_SESSION['tabChecked'] == 5) echo "checked"; ?>/>
-<label for="tab5" class="tablab">Wypożyczenia</label>
+<label for="tab5" class="tablab">WypoÅ¼yczenia</label>
 <div id="tab-content5" class="tab-content">
 <form id="form-wyp" action="" method="post">
-<p><input type="text" name="search_borr" placeholder="Id czytelnika/Tytuł książki">
+<p><input type="text" name="search_borr" placeholder="Id czytelnika/TytuÅ‚ ksiÄ…Å¼ki">
 <input type="submit" name="wyszukaj_wyp" value="Wyszukaj" /></p>
 </form>
-<a href="borrow.php?id=newborrow">Nowe wypożyczenie</a>
+<a href="borrow.php?id=newborrow">Nowe wypoÅ¼yczenie</a>
 
 <?php
 	if(isset($_POST['wyszukaj_wyp'])) {
@@ -302,9 +302,9 @@ if(isset($_POST['wyszukaj_rezerwacje'])) {
 				if($numbor != 0)
 				{
 					echo "<div class='content'>";
-					echo "<p>Wypożyczenia czytelnika ".$_POST["search_borr"]."</p>";
+					echo "<p>WypoÅ¼yczenia czytelnika ".$_POST["search_borr"]."</p>";
 					echo "<table>";
-					echo "<tr><th>Autor</th><th>Tytuł</th><th>Numer egzemplarza</th><th>Nr wypożyczenia</th></tr>";
+					echo "<tr><th>Autor</th><th>TytuÅ‚</th><th>Numer egzemplarza</th><th>Nr wypoÅ¼yczenia</th></tr>";
 					while($rowbor = mysql_fetch_assoc($resbor))
 					{
 						$resee = mysql_query("SELECT * FROM egzemplarz WHERE id_egzemplarz = '".$rowbor['id_egzemplarz']."'");
@@ -322,7 +322,7 @@ if(isset($_POST['wyszukaj_rezerwacje'])) {
 						if(mysql_num_rows($reskara)!=0)
 						{
 							$rowkara = mysql_fetch_assoc($reskara);
-							echo "<td>KARA: ".$rowkara['kwota']." zł</td>";
+							echo "<td>KARA: ".$rowkara['kwota']." zÅ‚</td>";
 						}
 						echo "</tr>";
 					}
@@ -337,7 +337,7 @@ if(isset($_POST['wyszukaj_rezerwacje'])) {
 				$rese = mysql_query("SELECT * FROM egzemplarz WHERE id_ksiazka = '".$rowb['id_ksiazka']."'");
 				echo "<div class='content'>";
 				echo "<table>";
-				echo "<tr><th>Autor</th><th>Tytuł</th><th>Numer egzemplarza</th><th>Nr wypożyczenia</th><th>Czytelnik</th></tr>";
+				echo "<tr><th>Autor</th><th>TytuÅ‚</th><th>Numer egzemplarza</th><th>Nr wypoÅ¼yczenia</th><th>Czytelnik</th></tr>";
 				while($rowe = mysql_fetch_assoc($rese))
 				{
 					$resbor = mysql_query("SELECT * FROM wypozyczenie WHERE id_egzemplarz = '".$rowe['id_egzemplarz']."' AND status='0'");
